@@ -3,6 +3,7 @@ using GamerHeavenAPI.Models.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GamerHeavenAPI.Migrations
 {
     [DbContext(typeof(GamerHeavenDbContext))]
-    partial class GamerHeavenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230823085836_ConnectControllerToConsole")]
+    partial class ConnectControllerToConsole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +69,7 @@ namespace GamerHeavenAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Consoles", (string)null);
+                    b.ToTable("Consoles");
 
                     b.HasData(
                         new
@@ -167,7 +170,7 @@ namespace GamerHeavenAPI.Migrations
 
                     b.HasIndex("ConsoleId");
 
-                    b.ToTable("Controllers", (string)null);
+                    b.ToTable("Controllers");
 
                     b.HasData(
                         new
@@ -276,7 +279,7 @@ namespace GamerHeavenAPI.Migrations
 
                     b.HasIndex("ConsoleId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
 
                     b.HasData(
                         new
