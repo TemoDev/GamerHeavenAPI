@@ -38,16 +38,6 @@ namespace GamerHeavenAPI.Controllers
             return Ok(console);
         }
 
-        [HttpGet("{id}/controllers")]
-        public async Task<ActionResult<IEnumerable<Models.Controller>>> GetConsoleController(int id)
-        {
-            var controllers = await _consoleContext.GetConsoleControllersAsync(id);
-            if(controllers == null) { return NotFound(); }
-            return Ok(controllers);
-        }
-
-
-
         [HttpPost]
         public async Task<ActionResult<Models.Console>> AddConsole(Models.Console console)
         {

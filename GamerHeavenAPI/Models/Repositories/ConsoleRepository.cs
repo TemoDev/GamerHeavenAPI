@@ -19,9 +19,14 @@ namespace GamerHeavenAPI.Models.Repositories
         {
             if(pageSize > maxPageSize) pageSize = maxPageSize;
 
-            var collection = _context.Consoles as IQueryable<Console>;
+            var collection = _context.Consoles.AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(name))
+           
+            collection.Where(cl => string.IsNullOrWhiteSpace(name) || cl.Name == name)
+                      .Where(cl => string.IsNullOrWhiteSpace(seachQuery) || (cl.Name.Contains(seachQuery) || cl.Description.Contains(seachQuery)));
+
+
+            if (!string.IsNullOrWhiteSpace(name))
             {
                 name = name.Trim();
                 collection = collection.Where(c => c.Name == name);
@@ -35,6 +40,7 @@ namespace GamerHeavenAPI.Models.Repositories
 
             var totalItemCount = await collection.CountAsync();
             var paginationMetadata = new PaginationMetadata(totalItemCount, pageSize, pageNumber);
+     
 
             var collectionToReturn = await
                 collection
@@ -42,15 +48,10 @@ namespace GamerHeavenAPI.Models.Repositories
                     .Take(pageSize)
                     .ToListAsync();
 
-            return (collectionToReturn, paginationMetadata);
-        }
+            var paginationList = new PaginationList<Console>(totalItemCount, pageSize, pageNumber, collectionToReturn);
+            var paginationList2 = new PaginationListGenereic<Console>(totalItemCount, pageSize, pageNumber, collectionToReturn);
 
-        public async Task<IEnumerable<Controller>?> GetConsoleControllersAsync(int id)
-        {
-            var console = await _context.Consoles.Where(c => c.Id == id).Include(c => c.Controllers).FirstOrDefaultAsync();
-            if (console == null) return null;
-            var controller = console.Controllers;
-            return controller;
+            return (collectionToReturn, paginationMetadata);
         }
 
         public async Task<Console?> GetConsoleByIdAsync(int id)
