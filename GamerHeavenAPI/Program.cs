@@ -14,6 +14,8 @@ namespace GamerHeavenAPI
             // Add services to the container.
             builder.Services.AddScoped<IConsoleRepository, ConsoleRepository>();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddScoped<IControllerRepository, ControllerRepository>();
+
             builder.Services.AddControllers()
                 .AddJsonOptions(s => s.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 

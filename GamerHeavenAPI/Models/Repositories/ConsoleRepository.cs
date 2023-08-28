@@ -10,11 +10,6 @@ namespace GamerHeavenAPI.Models.Repositories
         const int maxPageSize = 10;
         public ConsoleRepository(GamerHeavenDbContext context) { _context = context; }
 
-        public async Task<IEnumerable<Console>> GetAsync()
-        {
-            return await _context.Consoles.OrderBy(c => c.Name).ToListAsync();
-        }
-
         public async Task<PaginationData<Console>> GetAsync(string? name, string? seachQuery, int pageNumber, int pageSize)
         {
             if(pageSize > maxPageSize) pageSize = maxPageSize;

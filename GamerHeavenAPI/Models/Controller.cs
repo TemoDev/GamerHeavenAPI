@@ -5,11 +5,11 @@ namespace GamerHeavenAPI.Models
     public class Controller
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public string Category { get; set; } = "Controllers";
-        public string Manufacturer { get; set; }
-        public string ReleaseDate { get; set; }
-        public string Platform { get; set; }
+        public string Manufacturer { get; set; } = string.Empty;
+        public string ReleaseDate { get; set; } = string.Empty;
+        public string Platform { get; set; } = string.Empty;
         public int Amount { get; set; } 
 
         // Foreign keys which point to the console
