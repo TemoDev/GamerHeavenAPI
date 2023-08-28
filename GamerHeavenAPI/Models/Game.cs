@@ -5,13 +5,14 @@ namespace GamerHeavenAPI.Models
     public class Game
     {
         public int Id { get; set; } 
-        public string Name { get; set; }    
-        public string Description { get; set; }
-        public string ReleaseDate { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Category { get; set; } = "Games";
+        public string Description { get; set; } = string.Empty;
+        public string ReleaseDate { get; set; } = string.Empty;
         public int AgeOfAdmission { get; set; }
-        public string Publisher { get; set; }
+        public string Publisher { get; set; } = string.Empty;
         public int Amount { get; set; }
-        public string Img { get; set; }
+        public string Img { get; set; } = string.Empty;
 
         // Foreign keys
         [ForeignKey("ConsoleId")]

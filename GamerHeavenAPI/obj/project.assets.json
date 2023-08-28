@@ -3936,19 +3936,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\t.kuliashvili\\.nuget\\packages\\": {}
+    "C:\\Users\\temok\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\t.kuliashvili\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\GamerHeavenAPI.csproj",
+      "projectUniqueName": "C:\\Users\\temok\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\GamerHeavenAPI.csproj",
       "projectName": "GamerHeavenAPI",
-      "projectPath": "C:\\Users\\t.kuliashvili\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\GamerHeavenAPI.csproj",
-      "packagesPath": "C:\\Users\\t.kuliashvili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\t.kuliashvili\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\obj\\",
+      "projectPath": "C:\\Users\\temok\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\GamerHeavenAPI.csproj",
+      "packagesPath": "C:\\Users\\temok\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\temok\\Desktop\\GamerHeavenAPI\\GamerHeavenAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\t.kuliashvili\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\temok\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3956,7 +3956,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4013,7 +4012,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

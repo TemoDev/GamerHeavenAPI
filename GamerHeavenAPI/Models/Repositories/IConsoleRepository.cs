@@ -1,12 +1,9 @@
 ﻿namespace GamerHeavenAPI.Models.Repositories
 {
-    public interface IConsoleRepository
+    public interface IConsoleRepository : IGeneralRepository<Console>
     {
-        Task<IEnumerable<Console>> GetConsolesAsync();
-        Task<(IEnumerable<Console>, PaginationMetadata)> GetConsolesAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
-        Task<Console?> GetConsoleByIdAsync(int id);
-        Task AddConsoleAsync(Console console);    
-        void RemoveConsoleAsync(Console console);
-        Task<bool> SaveChangesAsync();
+        // If necessasry add console repository specific functions
+        Task<PaginationData<Console>> GetAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
+
     }
 }

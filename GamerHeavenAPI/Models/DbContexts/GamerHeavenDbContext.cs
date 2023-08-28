@@ -9,6 +9,7 @@ namespace GamerHeavenAPI.Models.DbContexts
         public DbSet<Console> Consoles { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Controller> Controllers { get; set; }
+        public DbSet<TransactionBase> Transactions { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -88,81 +89,82 @@ namespace GamerHeavenAPI.Models.DbContexts
             });
 
             modelBuilder.Entity<Controller>().HasData(
-                new Controller
-                {
-                    Id = 1,
-                    Name = "DualSense Wireless Controller",
-                    Manufacturer = "Sony",
-                    ReleaseDate = "2020-11-12",
-                    Platform = "PlayStation 5",
-                    ConsoleId = 1
-                },
+             new Controller
+             {
+                 Id = 1,
+                 Name = "DualSense Wireless Controller",
+                 Manufacturer = "Sony",
+                 ReleaseDate = "2020-11-12",
+                 Platform = "PlayStation 5",
+                 ConsoleId = 1,
+                 Amount = 8
+             },
 
-                // Controller 2: Xbox Wireless Controller for Xbox Series X
-                new Controller
-                {
-                    Id = 2,
-                    Name = "Xbox Wireless Controller",
-                    Manufacturer = "Microsoft",
-                    ReleaseDate = "2020-11-10",
-                    Platform = "Xbox Series X",
-                    ConsoleId = 2
-                },
+            new Controller
+            {
+                Id = 2,
+                Name = "Xbox Wireless Controller",
+                Manufacturer = "Microsoft",
+                ReleaseDate = "2020-11-10",
+                Platform = "Xbox Series X",
+                ConsoleId = 2,
+                Amount = 10
+            },
 
-                // Controller 3: Joy-Con Controllers for Nintendo Switch
-                new Controller
-                {
-                    Id = 3,
-                    Name = "Joy-Con Controllers",
-                    Manufacturer = "Nintendo",
-                    ReleaseDate = "2017-03-03",
-                    Platform = "Nintendo Switch",
-                    ConsoleId = 3
-                },
+            new Controller
+            {
+                Id = 3,
+                Name = "Joy-Con Controllers",
+                Manufacturer = "Nintendo",
+                ReleaseDate = "2017-03-03",
+                Platform = "Nintendo Switch",
+                ConsoleId = 3,
+                Amount = 7
+            },
 
-                // Controller 4: Xbox Wireless Controller for Xbox One X
-                new Controller
-                {
-                    Id = 4,
-                    Name = "Xbox Wireless Controller",
-                    Manufacturer = "Microsoft",
-                    ReleaseDate = "2017-11-07",
-                    Platform = "Xbox One X",
-                    ConsoleId = 4
-                },
+            new Controller
+            {
+                Id = 4,
+                Name = "Xbox Wireless Controller",
+                Manufacturer = "Microsoft",
+                ReleaseDate = "2017-11-07",
+                Platform = "Xbox One X",
+                ConsoleId = 4,
+                Amount = 13
+            },
 
-                // Controller 5: DualShock 4 Wireless Controller for PlayStation 4 Pro
-                new Controller
-                {
-                    Id = 5,
-                    Name = "DualShock 4 Wireless Controller",
-                    Manufacturer = "Sony",
-                    ReleaseDate = "2016-11-10",
-                    Platform = "PlayStation 4 Pro",
-                    ConsoleId = 5
-                },
+            new Controller
+            {
+                Id = 5,
+                Name = "DualShock 4 Wireless Controller",
+                Manufacturer = "Sony",
+                ReleaseDate = "2016-11-10",
+                Platform = "PlayStation 4 Pro",
+                ConsoleId = 5,
+                Amount = 6
+            },
 
-                // Controller 6: Pro Controller for Nintendo Switch
-                new Controller
-                {
-                    Id = 6,
-                    Name = "Pro Controller",
-                    Manufacturer = "Nintendo",
-                    ReleaseDate = "2017-03-03",
-                    Platform = "Nintendo Switch",
-                    ConsoleId = 3
-                },
+            new Controller
+            {
+                Id = 6,
+                Name = "Pro Controller",
+                Manufacturer = "Nintendo",
+                ReleaseDate = "2017-03-03",
+                Platform = "Nintendo Switch",
+                ConsoleId = 3,
+                Amount = 9
+            },
 
-                // Controller 7: Xbox Elite Wireless Controller Series 2
-                new Controller
-                {
-                    Id = 7,
-                    Name = "Xbox Elite Wireless Controller Series 2",
-                    Manufacturer = "Microsoft",
-                    ReleaseDate = "2019-11-04",
-                    Platform = "Xbox Series X",
-                    ConsoleId = 2
-                });
+            new Controller
+            {
+                Id = 7,
+                Name = "Xbox Elite Wireless Controller Series 2",
+                Manufacturer = "Microsoft",
+                ReleaseDate = "2019-11-04",
+                Platform = "Xbox Series X",
+                ConsoleId = 2,
+                Amount = 11
+            });
 
             modelBuilder.Entity<Game>().HasData(
             new Game

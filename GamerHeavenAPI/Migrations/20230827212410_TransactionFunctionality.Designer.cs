@@ -4,6 +4,7 @@ using GamerHeavenAPI.Models.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GamerHeavenAPI.Migrations
 {
     [DbContext(typeof(GamerHeavenDbContext))]
-    partial class GamerHeavenDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230827212410_TransactionFunctionality")]
+    partial class TransactionFunctionality
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,9 +157,6 @@ namespace GamerHeavenAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -190,7 +190,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 1,
-                            Amount = 8,
                             Category = "Controllers",
                             ConsoleId = 1,
                             Manufacturer = "Sony",
@@ -201,7 +200,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 2,
-                            Amount = 10,
                             Category = "Controllers",
                             ConsoleId = 2,
                             Manufacturer = "Microsoft",
@@ -212,7 +210,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 3,
-                            Amount = 7,
                             Category = "Controllers",
                             ConsoleId = 3,
                             Manufacturer = "Nintendo",
@@ -223,7 +220,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 4,
-                            Amount = 13,
                             Category = "Controllers",
                             ConsoleId = 4,
                             Manufacturer = "Microsoft",
@@ -234,7 +230,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 5,
-                            Amount = 6,
                             Category = "Controllers",
                             ConsoleId = 5,
                             Manufacturer = "Sony",
@@ -245,7 +240,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 6,
-                            Amount = 9,
                             Category = "Controllers",
                             ConsoleId = 3,
                             Manufacturer = "Nintendo",
@@ -256,7 +250,6 @@ namespace GamerHeavenAPI.Migrations
                         new
                         {
                             Id = 7,
-                            Amount = 11,
                             Category = "Controllers",
                             ConsoleId = 2,
                             Manufacturer = "Microsoft",

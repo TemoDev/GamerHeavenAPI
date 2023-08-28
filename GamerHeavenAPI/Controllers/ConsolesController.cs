@@ -17,23 +17,21 @@ namespace GamerHeavenAPI.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Models.Console>>> GetConsoles(
-            string? name, string? searchQuery, int pageNumber, int pageSize
+            string? name, string? searchQuery, int pageNumber = 1, int pageSize = 3
             ) {
-            var (consoles, paginationMedatada) = await _consoleContext.GetConsolesAsync(name, searchQuery, pageNumber, pageSize);
+            var paginationData = await _consoleContext.GetAsync(name, searchQuery, pageNumber, pageSize);
 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMedatada));
-
-            if(consoles == null)
+            if(paginationData.Items == null)
             {
                 return NotFound();
             }
-            return Ok(consoles);
+            return Ok(paginationData);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Models.Console>> GetConsole(int id)
         {
-            var console = await _consoleContext.GetConsoleByIdAsync(id);
+            var console = await _consoleContext.GetByIdAsync(id);
             if(console == null) return NotFound();
             return Ok(console);
         }
@@ -41,15 +39,14 @@ namespace GamerHeavenAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Models.Console>> AddConsole(Models.Console console)
         {
-            await _consoleContext.AddConsoleAsync(console);
+            await _consoleContext.AddAsync(console);
             await _consoleContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetConsole", 
+            return CreatedAtAction("AddConsole", 
                 new
                 {
                     Id = console.Id,
                 }, console);
         }
-
     }
 }
