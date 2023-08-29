@@ -65,6 +65,7 @@ namespace GamerHeavenAPI.Controllers
             public int Amount { get; set; }
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateConsole(int id, Models.Console console)
         {
@@ -83,6 +84,17 @@ namespace GamerHeavenAPI.Controllers
 
             await _consoleContext.SaveChangesAsync();
 
+            return NoContent();
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteConsole(int id)
+        {
+            var item = await _consoleContext.GetByIdAsync(id);
+            if(item == null) return NotFound();
+            _consoleContext.RemoveAsync(item);
+            await _consoleContext.SaveChangesAsync();
             return NoContent();
         }
     }
