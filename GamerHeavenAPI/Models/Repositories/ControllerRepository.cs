@@ -17,7 +17,7 @@ namespace GamerHeavenAPI.Models.Repositories
             await _context.AddAsync(item);
         }
 
-        public async Task<PaginationData<Controller>> GetAsync(string? name, string? seachQuery, int pageNumber, int pageSize)
+        public async Task<PaginationData<Controller>> GetAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
             if(pageSize > maxPageSize)
             {
@@ -25,9 +25,8 @@ namespace GamerHeavenAPI.Models.Repositories
             }
             var collection = _context.Controllers.AsQueryable();
 
-            collection.Where(cl => string.IsNullOrWhiteSpace(name) || cl.Name == name)
-                      .Where(cl => string.IsNullOrWhiteSpace(seachQuery) || (cl.Name.Contains(seachQuery) || cl.Platform.Contains(seachQuery)));
-
+            collection = collection.Where(cl => string.IsNullOrWhiteSpace(name) || cl.Name == name)
+                      .Where(cl => string.IsNullOrWhiteSpace(searchQuery) || cl.Name.Contains(searchQuery) || cl.Platform.Contains(searchQuery));
             var totalCount = await collection.CountAsync();
 
             var collectionToReturn = await

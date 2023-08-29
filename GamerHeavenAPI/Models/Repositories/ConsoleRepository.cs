@@ -10,15 +10,14 @@ namespace GamerHeavenAPI.Models.Repositories
         const int maxPageSize = 10;
         public ConsoleRepository(GamerHeavenDbContext context) { _context = context; }
 
-        public async Task<PaginationData<Console>> GetAsync(string? name, string? seachQuery, int pageNumber, int pageSize)
+        public async Task<PaginationData<Console>> GetAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
             if(pageSize > maxPageSize) pageSize = maxPageSize;
 
             var collection = _context.Consoles.AsQueryable();
 
-            collection.Where(cl => string.IsNullOrWhiteSpace(name) || cl.Name == name)
-                      .Where(cl => string.IsNullOrWhiteSpace(seachQuery) || (cl.Name.Contains(seachQuery) || cl.Description.Contains(seachQuery)));
-
+            collection = collection.Where(cl => string.IsNullOrWhiteSpace(name) || cl.Name == name)
+                      .Where(cl => string.IsNullOrWhiteSpace(searchQuery) || cl.Name.Contains(searchQuery) || cl.Description.Contains(searchQuery));
 
             var totalItemCount = await collection.CountAsync();
             

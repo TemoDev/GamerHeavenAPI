@@ -16,7 +16,7 @@ namespace GamerHeavenAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Models.Controller>>> GetConsoles(
+        public async Task<ActionResult<IEnumerable<Models.Controller>>> GetController(
             string? name, string? searchQuery, int pageNumber = 1, int pageSize = 3
             )
         {
@@ -30,7 +30,7 @@ namespace GamerHeavenAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Models.Controller>> GetConsole(int id)
+        public async Task<ActionResult<Models.Controller>> GetController(int id)
         {
             var controller = await _repository.GetByIdAsync(id);
             if (controller == null) return NotFound();
@@ -39,12 +39,12 @@ namespace GamerHeavenAPI.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<Models.Controller>> AddConsole(Models.Controller controller)
+        public async Task<ActionResult<Models.Controller>> AddController(Models.Controller controller)
         {
             await _repository.AddAsync(controller);
             await _repository.SaveChangesAsync();
 
-            return CreatedAtAction("AddConsole",
+            return CreatedAtAction("AddController",
                 new
                 {
                     Id = controller.Id,
