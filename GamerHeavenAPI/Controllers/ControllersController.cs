@@ -1,4 +1,5 @@
 ﻿using GamerHeavenAPI.Models.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GamerHeavenAPI.Controllers
@@ -36,6 +37,7 @@ namespace GamerHeavenAPI.Controllers
             return Ok(controller);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Models.Controller>> AddConsole(Models.Controller controller)
         {

@@ -172,3 +172,4 @@ C:\Users\temok\Desktop\GamerHeavenAPI\GamerHeavenAPI\obj\Debug\net6.0\refint\Gam
 C:\Users\temok\Desktop\GamerHeavenAPI\GamerHeavenAPI\obj\Debug\net6.0\GamerHeavenAPI.pdb
 C:\Users\temok\Desktop\GamerHeavenAPI\GamerHeavenAPI\obj\Debug\net6.0\GamerHeavenAPI.genruntimeconfig.cache
 C:\Users\temok\Desktop\GamerHeavenAPI\GamerHeavenAPI\obj\Debug\net6.0\ref\GamerHeavenAPI.dll
+C:\Users\t.kuliashvili\Desktop\GamerHeavenAPI\GamerHeavenAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

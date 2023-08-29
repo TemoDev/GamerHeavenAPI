@@ -1,11 +1,13 @@
 ﻿using GamerHeavenAPI.Models;
 using GamerHeavenAPI.Models.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace GamerHeavenAPI.Controllers
 {
+    [Authorize]
     [Route("api/transaction")]
     [ApiController]
     public class TransactionController : ControllerBase
