@@ -60,7 +60,6 @@ namespace GamerHeavenAPI
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();

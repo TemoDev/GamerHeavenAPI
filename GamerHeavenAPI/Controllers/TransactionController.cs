@@ -7,8 +7,8 @@ using System;
 
 namespace GamerHeavenAPI.Controllers
 {
-    [Route("api/transaction")]
-    [Authorize]
+    [Route("api/transactions")]
+    // [Authorize]
     [ApiController]
     public class TransactionController : ControllerBase
     {
@@ -63,15 +63,17 @@ namespace GamerHeavenAPI.Controllers
             }
 
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, $"TransactionHistory_{Guid.NewGuid()}.csv")))
+            string fileName = $"TransactionHistory_{Guid.NewGuid()}.csv";
+            string fileToWrite = Path.Combine(docPath, fileName);
+            using (StreamWriter outputFile = new StreamWriter(fileToWrite))
             {
                 await outputFile.WriteLineAsync("TransactionId, CustomerId, Category, ItemId, PurchaseDate, Amount");
                 foreach(var t in transactions) {
                     await outputFile.WriteLineAsync(t.ToString());
                 }
             }
-
-            return Ok();
+            var streamRead = new FileStream(fileToWrite, FileMode.Open);
+            return File(streamRead, "text/csv", fileName);
         }
     }
 }
