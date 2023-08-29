@@ -17,5 +17,5 @@ Welcome to the README for the E-Commerce API project. This API provides the back
 The API supports transaction functionality to track customer purchases. When a purchase is made, a transaction record is created, capturing details such as customer ID, purchased items, and purchase date.
 
 ## CSV File Generation
-The API can generate CSV files containing transaction data. You can use the `/api/transaction/export` endpoint to retrieve transaction data and save it as a CSV file.
+The API can generate CSV files containing transaction data. You can use the `/api/transactions/export` endpoint to retrieve transaction data and save it as a CSV file.
 
