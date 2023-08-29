@@ -50,5 +50,40 @@ namespace GamerHeavenAPI.Controllers
                     Id = console.Id,
                 }, console);
         }
+
+        // Class for updating console object
+        public class ConsoleToUpdate
+        {
+            public string Name { get; set; }
+            public string Brand { get; set; }
+            public string ReleaseDate { get; set; }
+            public string Processor { get; set; }
+            public string InternalMemory { get; set; }
+            public string Ram { get; set; }
+            public string Img { get; set; }
+            public string Description { get; set; }
+            public int Amount { get; set; }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateConsole(int id, Models.Console console)
+        {
+            var item = await _consoleContext.GetByIdAsync(id);
+            if(item == null) return NotFound(); 
+
+            item.Name = console.Name;
+            item.Brand = console.Brand;
+            item.ReleaseDate = console.ReleaseDate;
+            item.Processor = console.Processor;
+            item.InternalMemory = console.InternalMemory;
+            item.Ram = console.Ram;
+            item.Img = console.Img;
+            item.Description = console.Description;
+            item.Amount = console.Amount;
+
+            await _consoleContext.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }

@@ -7,8 +7,8 @@ using System;
 
 namespace GamerHeavenAPI.Controllers
 {
-    [Authorize]
     [Route("api/transaction")]
+    [Authorize]
     [ApiController]
     public class TransactionController : ControllerBase
     {
@@ -17,9 +17,26 @@ namespace GamerHeavenAPI.Controllers
             _transactionRepository = rep;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> AddTransaction(TransactionBase transaction)
+        public class TransactionRequestBody
         {
+            public int CustomerId { get; set; }
+            public string Category { get; set; } = string.Empty;
+            public int ItemId { get; set; }
+            public int Amount { get; set; }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddTransaction(TransactionRequestBody body)
+        {
+            var transaction = new TransactionBase
+            {
+                CustomerId = body.CustomerId,
+                Category = body.Category,
+                ItemId = body.ItemId,
+                Amount = body.Amount,
+                PurchaseDate = DateTime.UtcNow
+            };
+
             bool madeTransaction = await _transactionRepository.AddTransactionAsync(transaction);
             if(madeTransaction)
             {
